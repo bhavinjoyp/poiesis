@@ -109,40 +109,59 @@
             opacity: 1;
             transform: translateY(0);
         }
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        .modal-backdrop.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .modal-content {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            z-index: 101;
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        .modal-content.visible {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            pointer-events: all;
+        }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-sm">
+    <header class="fixed top-0 left-0 right-0 z-0 bg-black/30 backdrop-blur-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2 group">
-                <svg class="w-8 h-8 text-violet-400 group-hover:text-pink-400 group-hover:rotate-[-15deg] transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <span class="text-xl font-bold font-poppins text-white">POIESIS 2025</span>
-            </div>
-            <nav class="hidden md:flex space-x-8 text-sm font-semibold">
-                <a href="#about" class="text-gray-300 hover:text-violet-400 transition">About</a>
-                <a href="#events" class="text-gray-300 hover:text-violet-400 transition">Events</a>
-                <a href="#schedule" class="text-gray-300 hover:text-violet-400 transition">Schedule</a>
-                <a href="#register" class="text-gray-300 hover:text-violet-400 transition">Register</a>
-                <a href="#contact" class="text-gray-300 hover:text-violet-400 transition">Contact</a>
-            </nav>
-            <a href="#register" class="hidden md:block btn-primary text-white font-bold py-2 px-6 rounded-full animation-none">Register Now</a>
-            <button id="mobile-menu-btn" class="md:hidden text-white">
+            <button id="mobile-menu-btn" class="md:hidden text-black">
                 <i data-lucide="menu"></i>
             </button>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-black/80">
-             <a href="#about" class="block py-2 px-6 text-white hover:bg-violet-500/20">About</a>
-             <a href="#events" class="block py-2 px-6 text-white hover:bg-violet-500/20">Events</a>
-             <a href="#schedule" class="block py-2 px-6 text-white hover:bg-violet-500/20">Schedule</a>
-             <a href="#register" class="block py-2 px-6 text-white hover:bg-violet-500/20">Register</a>
-             <a href="#contact" class="block py-2 px-6 text-white hover:bg-violet-500/20">Contact</a>
-             <div class="p-4">
-                <a href="#register" class="block text-center btn-primary text-white font-bold py-3 px-6 rounded-full w-full">Register Now</a>
-             </div>
-        </div>
     </header>
 
     <!-- Hero Section -->
@@ -195,14 +214,22 @@
         <section id="events" class="reveal">
             <h2 class="section-title text-center mb-12">The Events</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="glass-card p-6 text-center"><i data-lucide="music-4" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Terpsichore</h3><p class="text-sm text-gray-400">The ultimate dance-off. Solos, duos, and group performances in Eastern & Western styles.</p></div>
-                <div class="glass-card p-6 text-center"><i data-lucide="mic" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Elysian</h3><p class="text-sm text-gray-400">A musical paradise. Showcase your vocal and instrumental talents in solo, duet, or group categories.</p></div>
-                <div class="glass-card p-6 text-center"><i data-lucide="clapperboard" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Elixir</h3><p class="text-sm text-gray-400">The battle of wits in Mad Ads. Create hilarious and imaginative ads for fictional products.</p></div>
-                <div class="glass-card p-6 text-center"><i data-lucide="gem" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Entelechia</h3><p class="text-sm text-gray-400">"Strut, Shine, Slay!" A fashion show celebrating transformation and style evolution.</p></div>
-                <div class="glass-card p-6 text-center"><i data-lucide="chef-hat" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Intaglio</h3><p class="text-sm text-gray-400">"Sculpt beauty into every bite." An artistic fruit and vegetable carving competition.</p></div>
-                <div class="glass-card p-6 text-center"><i data-lucide="film" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Eikosmos</h3><p class="text-sm text-gray-400">"A Universe of Perspectives." An immersive film review event for cinematic storytelling.</p></div>
-                <div class="glass-card p-6 text-center"><i data-lucide="palette" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Eikonographia</h3><p class="text-sm text-gray-400">Handmade poster making competition. Bring stories to life with paper and color.</p></div>
-                <div class="glass-card p-6 text-center"><i data-lucide="crown" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Eminentia</h3><p class="text-sm text-gray-400">The ultimate personality contest. Showcase your charisma, poise, and oratory skills.</p></div>
+                <!-- Event Card: Terpsichore -->
+                <div class="glass-card p-6 text-center flex flex-col"><i data-lucide="music-4" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Terpsichore</h3><p class="text-sm text-gray-400 flex-grow">The ultimate dance-off. Solos, duos, and group performances in Eastern & Western styles.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Terpsichore">View Rules</button></div>
+                <!-- Event Card: Elysian -->
+                <div class="glass-card p-6 text-center flex flex-col"><i data-lucide="mic" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Elysian</h3><p class="text-sm text-gray-400 flex-grow">A musical paradise. Showcase your vocal and instrumental talents in solo, duet, or group categories.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Elysian">View Rules</button></div>
+                <!-- Event Card: Elixir -->
+                <div class="glass-card p-6 text-center flex flex-col"><i data-lucide="clapperboard" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Elixir</h3><p class="text-sm text-gray-400 flex-grow">The battle of wits in Mad Ads. Create hilarious and imaginative ads for fictional products.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Elixir">View Rules</button></div>
+                <!-- Event Card: Entelechia -->
+                <div class="glass-card p-6 text-center flex flex-col"><i data-lucide="gem" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Entelechia</h3><p class="text-sm text-gray-400 flex-grow">"Strut, Shine, Slay!" A fashion show celebrating transformation and style evolution.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Entelechia">View Rules</button></div>
+                <!-- Event Card: Intaglio -->
+                <div class="glass-card p-6 text-center flex flex-col"><i data-lucide="chef-hat" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Intaglio</h3><p class="text-sm text-gray-400 flex-grow">"Sculpt beauty into every bite." An artistic fruit and vegetable carving competition.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Intaglio">View Rules</button></div>
+                <!-- Event Card: Eikosmos -->
+                <div class="glass-card p-6 text-center flex flex-col"><i data-lucide="film" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Eikosmos</h3><p class="text-sm text-gray-400 flex-grow">"A Universe of Perspectives." An immersive film review event for cinematic storytelling.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Eikosmos">View Rules</button></div>
+                <!-- Event Card: Eikonographia -->
+                <div class="glass-card p-6 text-center flex flex-col"><i data-lucide="palette" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Eikonographia</h3><p class="text-sm text-gray-400 flex-grow">Handmade poster making competition. Bring stories to life with paper and color.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Eikonographia">View Rules</button></div>
+                <!-- Event Card: Eminentia -->
+                <div class="glass-card p-6 text-center flex flex-col"><i data-lucide="crown" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Eminentia</h3><p class="text-sm text-gray-400 flex-grow">The ultimate personality contest. Showcase your charisma, poise, and oratory skills.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Eminentia">View Rules</button></div>
             </div>
         </section>
         <!-- Schedule Section -->
@@ -272,12 +299,25 @@
         <section id="rules" class="reveal">
             <h2 class="section-title text-center mb-12">Rules & Guidelines</h2>
             <div class="max-w-4xl mx-auto space-y-4">
-                <details class="glass-card p-6 cursor-pointer"><summary class="font-semibold text-lg flex justify-between items-center">General Rules<i data-lucide="chevron-down" class="transition-transform duration-300"></i></summary><div class="mt-4 text-gray-400 space-y-2"><p>• Eligibility: Grades 9-12 & Undergraduates (1st-3rd year).</p><p>• Be present at Gate 20/21 (Residency Road) by 8:30 AM for registration confirmation.</p><p>• On-spot registrations close at 10:30 AM.</p><p>• Bags are subject to checking.</p><p>• Valid photo ID (school/college/government) is mandatory for entry.</p><p>• Entry stamps must be visible at all times.</p></div></details>
-                <details class="glass-card p-6 cursor-pointer"><summary class="font-semibold text-lg flex justify-between items-center">Conduct & Attire<i data-lucide="chevron-down" class="transition-transform duration-300"></i></summary><div class="mt-4 text-gray-400 space-y-2"><p>• Do not wear your institution's uniform.</p><p>• Inappropriate attire, conduct, vulgarity, or mockery will lead to disqualification or other serious action.</p><p>• Follow instructions from event heads and volunteers.</p><p>• Dress Code: Trousers and sleeved shirts only. Shorts, skirts, sleeveless, or ripped clothing is prohibited.</p></div></details>
-                <details class="glass-card p-6 cursor-pointer"><summary class="font-semibold text-lg flex justify-between items-center">Restricted Items<i data-lucide="chevron-down" class="transition-transform duration-300"></i></summary><div class="mt-4 text-gray-400 space-y-2"><p>• No weaponry (knives, scissors, etc.).</p><p>• No inflammable substances (deodorants, perfumes).</p><p>• No illegal substances (alcohol, drugs, vapes, etc.).</p><p>• No outside food, drinks, or water bottles.</p></div></details>
+                <details class="glass-card p-6" open><summary class="font-semibold text-lg flex justify-between items-center">General Rules</summary><div class="mt-4 text-gray-400 space-y-2"><p>• Eligibility: Grades 9-12 & Undergraduates (1st-3rd year).</p><p>• Be present at Gate 20/21 (Residency Road) by 8:30 AM for registration confirmation.</p><p>• On-spot registrations close at 10:30 AM.</p><p>• Bags are subject to checking.</p><p>• Valid photo ID (school/college/government) is mandatory for entry.</p><p>• Entry stamps must be visible at all times.</p></div></details>
+                <details class="glass-card p-6" open><summary class="font-semibold text-lg flex justify-between items-center">Conduct & Attire</summary><div class="mt-4 text-gray-400 space-y-2"><p>• Do not wear your institution's uniform.</p><p>• Inappropriate attire, conduct, vulgarity, or mockery will lead to disqualification or other serious action.</p><p>• Follow instructions from event heads and volunteers.</p><p>• Dress Code: Trousers and sleeved shirts only. Shorts, skirts, sleeveless, or ripped clothing is prohibited.</p></div></details>
+                <details class="glass-card p-6" open><summary class="font-semibold text-lg flex justify-between items-center">Restricted Items</summary><div class="mt-4 text-gray-400 space-y-2"><p>• No weaponry (knives, scissors, etc.).</p><p>• No inflammable substances (deodorants, perfumes).</p><p>• No illegal substances (alcohol, drugs, vapes, etc.).</p><p>• No outside food, drinks, or water bottles.</p></div></details>
             </div>
         </section>
     </main>
+    <!-- Event Rules Modal -->
+    <div id="rules-modal-backdrop" class="modal-backdrop">
+        <div id="rules-modal-content" class="modal-content">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="modal-title" class="font-poppins font-bold text-3xl text-violet-400">Event Rules</h3>
+                <button id="modal-close-btn" class="text-gray-400 hover:text-white">&times;</button>
+            </div>
+            <div id="modal-body" class="text-gray-300 space-y-3">
+                <!-- Rules will be injected here -->
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer id="contact" class="bg-black/50 border-t border-t-gray-800 mt-16">
         <div class="container mx-auto px-6 py-12 text-center">
@@ -297,6 +337,61 @@
     </footer>
     <script>
         lucide.createIcons();
+
+        // --- Event Rules Data ---
+        const eventRules = {
+            "Terpsichore": [
+                "Team of 4-12 members.",
+                "Time limit: 4-6 minutes.",
+                "Styles: Eastern and Western.",
+                "No props allowed.",
+                "Audio must be submitted in a pen drive on the day of the event in MP3 format."
+            ],
+            "Elysian": [
+                "Categories: Solo, Duet, Group (3-8 members).",
+                "Time limit: 3-5 minutes.",
+                "Styles: Eastern and Western, vocals and instrumentals.",
+                "Participants may bring their own instruments (a keyboard will be provided).",
+                "Karaoke tracks must be submitted in a pen drive in MP3 format."
+            ],
+            "Elixir": [
+                "Team of 3-5 members.",
+                "Time limit: 3-5 minutes for performance, 15 minutes for preparation.",
+                "Topic will be given on the spot.",
+                "No props allowed.",
+                "Vulgarity or offensive content will lead to disqualification."
+            ],
+            "Entelechia": [
+                "Team of 8-14 members (including models and designers).",
+                "Time limit: 5-7 minutes.",
+                "Theme: 'Transformation: From Cocoon to Butterfly'.",
+                "Participants must bring their own materials and music (in a pen drive)."
+            ],
+            "Intaglio": [
+                "Individual event.",
+                "Time limit: 1 hour.",
+                "Participants must bring their own fruits, vegetables, and carving tools.",
+                "Theme: 'Art in Bloom'."
+            ],
+            "Eikosmos": [
+                "Individual event.",
+                "Time limit: 3-5 minutes for review.",
+                "A movie clip will be shown on the spot.",
+                "Participants will be judged on analysis, presentation, and clarity."
+            ],
+            "Eikonographia": [
+                "Individual event.",
+                "Time limit: 1.5 hours.",
+                "Topic will be given on the spot.",
+                "Chart paper will be provided; participants must bring all other materials (colors, brushes, etc.)."
+            ],
+            "Eminentia": [
+                "Individual event.",
+                "Multiple rounds testing personality, wit, and public speaking.",
+                "Further details about rounds will be provided on the day of the event."
+            ]
+        };
+
         // --- Mobile Menu Toggle ---
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -327,13 +422,48 @@
             updateField('seconds', textSecond);
         };
         setInterval(countdown, 1000);
-        // --- Accordion Icon Rotation ---
-        document.querySelectorAll('details').forEach((detail) => {
+        
+        // --- Accordion Icon Rotation (No longer needed as details are always open) ---
+        /* document.querySelectorAll('details').forEach((detail) => {
             detail.addEventListener('toggle', () => {
                 const icon = detail.querySelector('summary i');
                 icon.style.transform = detail.open ? 'rotate(180deg)' : 'rotate(0deg)';
             });
+        }); */
+
+        // --- Event Rules Modal Logic ---
+        const modalBackdrop = document.getElementById('rules-modal-backdrop');
+        const modalContent = document.getElementById('rules-modal-content');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBody = document.getElementById('modal-body');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+
+        document.querySelectorAll('.event-rules-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const eventName = button.dataset.event;
+                const rules = eventRules[eventName];
+                
+                modalTitle.innerText = `${eventName} - Rules`;
+                modalBody.innerHTML = rules.map(rule => `<p class="flex items-start"><i data-lucide="check-square" class="w-4 h-4 mr-2 mt-1 text-pink-400 flex-shrink-0"></i><span>${rule}</span></p>`).join('');
+                lucide.createIcons(); // Re-render icons in the modal
+
+                modalBackdrop.classList.add('visible');
+                modalContent.classList.add('visible');
+            });
         });
+
+        const closeModal = () => {
+            modalBackdrop.classList.remove('visible');
+            modalContent.classList.remove('visible');
+        };
+
+        modalCloseBtn.addEventListener('click', closeModal);
+        modalBackdrop.addEventListener('click', (e) => {
+            if (e.target === modalBackdrop) {
+                closeModal();
+            }
+        });
+
         // --- Scroll Reveal Animation ---
         const revealElements = document.querySelectorAll('.reveal');
         const revealObserver = new IntersectionObserver((entries) => {
