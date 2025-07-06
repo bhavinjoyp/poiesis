@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poiesis 2025 | Unleash Your Creativity</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Inter:wght@400;500;600&display=swap" rel="Categoriesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         body {
@@ -196,9 +196,15 @@
                     <div class="text-xs uppercase">Seconds</div>
                 </div>
             </div>
-            <a href="#register" class="btn-primary text-white font-bold py-4 px-10 rounded-full text-lg">
-                Unleash Your Creativity
-            </a>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#register" class="btn-primary text-white font-bold py-4 px-10 rounded-full text-lg">
+                    Register Now
+                </a>
+                <a href="poiesis-2025-brochure.pdf" download class="bg-white/10 border border-white/30 text-white font-bold py-4 px-8 rounded-full text-lg hover:bg-white/20 transition flex items-center space-x-2">
+                    <i data-lucide="download" class="w-5 h-5"></i>
+                    <span>Download Brochure</span>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -215,7 +221,7 @@
             <h2 class="section-title text-center mb-12">The Events</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Event Card: Terpsichore -->
-                <div class="glass-card p-6 text-center flex flex-col"><i data-lucide="music-4" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Terpsichore</h3><p class="text-sm text-gray-400 flex-grow">The ultimate dance-off. Solos, duos, and group performances in Eastern & Western styles.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Terpsichore">View Rules</button></div>
+                <div class="glass-card p-6 text-center flex flex-col"><i data-lucide="music-4" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Terpsichore</h3><p class="text-sm text-gray-400 flex-grow">The ultimate dance-off. Solos, duos, and group performances in Eastern & Western Categories.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Terpsichore">View Rules</button></div>
                 <!-- Event Card: Elysian -->
                 <div class="glass-card p-6 text-center flex flex-col"><i data-lucide="mic" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Elysian</h3><p class="text-sm text-gray-400 flex-grow">A musical paradise. Showcase your vocal and instrumental talents in solo, duet, or group categories.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Elysian">View Rules</button></div>
                 <!-- Event Card: Elixir -->
@@ -341,54 +347,74 @@
         // --- Event Rules Data ---
         const eventRules = {
             "Terpsichore": [
-                "Team of 4-12 members.",
-                "Time limit: 4-6 minutes.",
-                "Styles: Eastern and Western.",
-                "No props allowed.",
-                "Audio must be submitted in a pen drive on the day of the event in MP3 format."
+                "Team: 6+2 participants per team",
+                "Time duration: 4+1 minutes",
+                "Categories: Eastern, Western",
+                "Duo: Time duration: 3+1 minutes (Open category)",
+                "Solo: Time duration: 2+1 minutes (Open category)"
             ],
             "Elysian": [
-                "Categories: Solo, Duet, Group (3-8 members).",
-                "Time limit: 3-5 minutes.",
-                "Styles: Eastern and Western, vocals and instrumentals.",
-                "Participants may bring their own instruments (a keyboard will be provided).",
-                "Karaoke tracks must be submitted in a pen drive in MP3 format."
+                "Solo/Duet Singing (Western): 2+3 minutes duration",
+                "Group Singing: 3-8 members, 3+5 minutes duration",
+                "Categories: Western, Indian Classical",
+                "Only Original/Cover/Album songs allowed",
+                "Karaoke tracks without backing vocals must be submitted 3 hours before event",
+                "Maximum 3 instruments allowed, participants must bring their own",
+                "No vulgar, sexually explicit, or violent language",
+                "Appropriate dress code required"
             ],
             "Elixir": [
-                "Team of 3-5 members.",
-                "Time limit: 3-5 minutes for performance, 15 minutes for preparation.",
-                "Topic will be given on the spot.",
-                "No props allowed.",
-                "Vulgarity or offensive content will lead to disqualification."
+                "Team size: 5-8 members",
+                "Time limit: 5+2 minutes",
+                "Create conceptual advertisement for new product/service",
+                "Must include new product name and catchy punch line",
+                "Props, visuals, and creative displays encouraged",
+                "Must be original - no copying existing advertisements",
+                "No offensive, discriminatory, or inappropriate content",
+                "No bias against caste, community, or religion"
             ],
             "Entelechia": [
-                "Team of 8-14 members (including models and designers).",
-                "Time limit: 5-7 minutes.",
-                "Theme: 'Transformation: From Cocoon to Butterfly'.",
-                "Participants must bring their own materials and music (in a pen drive)."
+                "Team: 5-7 participants",
+                "Theme: 'The Gatsby Garden: Dreams in Bloom and Decay'",
+                "Use natural/biodegradable materials and recycled fashion",
+                "Round 1: Ramp walk for 3+1 minutes",
+                "Round 2: Threads on thoughts - questioning on costumes",
+                "All costumes must be modest",
+                "Participants must bring own materials",
+                "Music tracks submitted 2 hours before event via pendrive"
             ],
             "Intaglio": [
-                "Individual event.",
-                "Time limit: 1 hour.",
-                "Participants must bring their own fruits, vegetables, and carving tools.",
-                "Theme: 'Art in Bloom'."
+                "Solo event",
+                "Theme: 'Garden Dreams & Marine Reefs'",
+                "Time duration: 1 hour + 15 minutes for presentation",
+                "Carve mythical flowers, sea creatures, nature elements only",
+                "Participants bring ingredients, knives, carving tools",
+                "Carving must be done only at venue",
+                "Apron and cap provided by institution",
+                "Hygiene must be maintained at all times"
             ],
             "Eikosmos": [
-                "Individual event.",
-                "Time limit: 3-5 minutes for review.",
-                "A movie clip will be shown on the spot.",
-                "Participants will be judged on analysis, presentation, and clarity."
+                "Individual event",
+                "No use of Internet, ChatGPT, AI, etc.",
+                "Bring notepad and stationery (laptop allowed but no internet)",
+                "Focus on film themes, cinematic techniques, narrative, performances",
+                "Constructive and culturally sensitive criticism required",
+                "Be mindful of time allocated for review completion",
+                "Maintain decorum - misbehavior leads to disqualification"
             ],
             "Eikonographia": [
-                "Individual event.",
-                "Time limit: 1.5 hours.",
-                "Topic will be given on the spot.",
-                "Chart paper will be provided; participants must bring all other materials (colors, brushes, etc.)."
+                "Team: 2-4 participants",
+                "Time duration: 2 hours",
+                "Theme: 'The World Through My Phone Screen'",
+                "Reflect how social media shapes our filtered reality",
+                "Participants bring own materials (chart paper, sketch pens, etc.)",
+                "Only handmade work allowed - no stencils or digital elements",
+                "Posters must clearly reflect the given theme"
             ],
             "Eminentia": [
-                "Individual event.",
-                "Multiple rounds testing personality, wit, and public speaking.",
-                "Further details about rounds will be provided on the day of the event."
+                "Individual event",
+                "Guidelines will be provided after registration",
+                "Multiple rounds testing personality, wit, and public speaking"
             ]
         };
 
