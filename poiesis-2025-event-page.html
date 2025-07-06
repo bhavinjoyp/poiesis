@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poiesis 2025 | Unleash Your Creativity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #e5e5e5;
+            overflow-x: hidden;
+        }
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero-bg {
+            background: linear-gradient(-45deg, #1e0033, #3c004a, #6d28d9, #d946ef);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            position: relative;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        #particle-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: translateY(0);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, #8B5CF6, #EC4899);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+            animation: pulse-glow 2s infinite;
+        }
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(236, 72, 153, 0.6);
+            animation: none;
+        }
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 5px #ec4899, 0 0 10px #ec4899, 0 0 15px #8B5CF6, 0 0 20px #8B5CF6; }
+            50% { box-shadow: 0 0 10px #ec4899, 0 0 15px #ec4899, 0 0 25px #8B5CF6, 0 0 30px #8B5CF6; }
+            100% { box-shadow: 0 0 5px #ec4899, 0 0 10px #ec4899, 0 0 15px #8B5CF6, 0 0 20px #8B5CF6; }
+        }
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            background: linear-gradient(90deg, #a78bfa, #f472b6, #fde047);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(244, 114, 182, 0.3);
+        }
+        .countdown-item {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 1rem;
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .countdown-item div:first-child {
+            transition: color 0.3s ease;
+        }
+        .event-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 1rem;
+            color: #d8b4fe;
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover .event-icon {
+            color: #fde047;
+            transform: scale(1.2) rotate(-15deg);
+        }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2 group">
+                <svg class="w-8 h-8 text-violet-400 group-hover:text-pink-400 group-hover:rotate-[-15deg] transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span class="text-xl font-bold font-poppins text-white">POIESIS 2025</span>
+            </div>
+            <nav class="hidden md:flex space-x-8 text-sm font-semibold">
+                <a href="#about" class="text-gray-300 hover:text-violet-400 transition">About</a>
+                <a href="#events" class="text-gray-300 hover:text-violet-400 transition">Events</a>
+                <a href="#schedule" class="text-gray-300 hover:text-violet-400 transition">Schedule</a>
+                <a href="#register" class="text-gray-300 hover:text-violet-400 transition">Register</a>
+                <a href="#contact" class="text-gray-300 hover:text-violet-400 transition">Contact</a>
+            </nav>
+            <a href="#register" class="hidden md:block btn-primary text-white font-bold py-2 px-6 rounded-full animation-none">Register Now</a>
+            <button id="mobile-menu-btn" class="md:hidden text-white">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/80">
+             <a href="#about" class="block py-2 px-6 text-white hover:bg-violet-500/20">About</a>
+             <a href="#events" class="block py-2 px-6 text-white hover:bg-violet-500/20">Events</a>
+             <a href="#schedule" class="block py-2 px-6 text-white hover:bg-violet-500/20">Schedule</a>
+             <a href="#register" class="block py-2 px-6 text-white hover:bg-violet-500/20">Register</a>
+             <a href="#contact" class="block py-2 px-6 text-white hover:bg-violet-500/20">Contact</a>
+             <div class="p-4">
+                <a href="#register" class="block text-center btn-primary text-white font-bold py-3 px-6 rounded-full w-full">Register Now</a>
+             </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <canvas id="particle-canvas"></canvas>
+        <div class="text-center text-white px-6 z-10">
+            <h1 class="text-5xl md:text-8xl font-black font-poppins uppercase tracking-wider" style="text-shadow: 0 0 30px rgba(236, 72, 153, 0.8);">
+                POIESIS 2025
+            </h1>
+            <p class="text-lg md:text-2xl font-semibold mt-4 mb-8 text-gray-200">
+                An Inter-School/Collegiate Cultural Fest by Sacred Heart Girls' High School
+            </p>
+            <p class="text-2xl md:text-4xl font-bold font-poppins mb-12 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-violet-400">
+                AUGUST 1ST & 2ND
+            </p>
+            <!-- Countdown Timer -->
+            <div id="countdown" class="grid grid-cols-4 gap-4 max-w-lg mx-auto mb-12">
+                <div class="countdown-item">
+                    <div id="days" class="text-4xl font-bold font-poppins">00</div>
+                    <div class="text-xs uppercase">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div id="hours" class="text-4xl font-bold font-poppins">00</div>
+                    <div class="text-xs uppercase">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div id="minutes" class="text-4xl font-bold font-poppins">00</div>
+                    <div class="text-xs uppercase">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div id="seconds" class="text-4xl font-bold font-poppins">00</div>
+                    <div class="text-xs uppercase">Seconds</div>
+                </div>
+            </div>
+            <a href="#register" class="btn-primary text-white font-bold py-4 px-10 rounded-full text-lg">
+                Unleash Your Creativity
+            </a>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-6 py-20 space-y-24">
+        <!-- About Section -->
+        <section id="about" class="text-center max-w-4xl mx-auto reveal">
+            <h2 class="section-title mb-8">About Poiesis</h2>
+            <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                Inspired by the Greek term for "creation," Poiesis is a celebration of the inherent creativity within each individual. It's a vibrant platform for students to unleash their imagination, showcase their talents, and infuse every endeavor with a creative touch. Hosted by Sacred Heart Girls' High School, this festival is a reminder that creativity thrives within us all, waiting to be unleashed.
+            </p>
+        </section>
+        <!-- Events Section -->
+        <section id="events" class="reveal">
+            <h2 class="section-title text-center mb-12">The Events</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="glass-card p-6 text-center"><i data-lucide="music-4" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Terpsichore</h3><p class="text-sm text-gray-400">The ultimate dance-off. Solos, duos, and group performances in Eastern & Western styles.</p></div>
+                <div class="glass-card p-6 text-center"><i data-lucide="mic" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Elysian</h3><p class="text-sm text-gray-400">A musical paradise. Showcase your vocal and instrumental talents in solo, duet, or group categories.</p></div>
+                <div class="glass-card p-6 text-center"><i data-lucide="clapperboard" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Elixir</h3><p class="text-sm text-gray-400">The battle of wits in Mad Ads. Create hilarious and imaginative ads for fictional products.</p></div>
+                <div class="glass-card p-6 text-center"><i data-lucide="gem" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Entelechia</h3><p class="text-sm text-gray-400">"Strut, Shine, Slay!" A fashion show celebrating transformation and style evolution.</p></div>
+                <div class="glass-card p-6 text-center"><i data-lucide="chef-hat" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Intaglio</h3><p class="text-sm text-gray-400">"Sculpt beauty into every bite." An artistic fruit and vegetable carving competition.</p></div>
+                <div class="glass-card p-6 text-center"><i data-lucide="film" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Eikosmos</h3><p class="text-sm text-gray-400">"A Universe of Perspectives." An immersive film review event for cinematic storytelling.</p></div>
+                <div class="glass-card p-6 text-center"><i data-lucide="palette" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Eikonographia</h3><p class="text-sm text-gray-400">Handmade poster making competition. Bring stories to life with paper and color.</p></div>
+                <div class="glass-card p-6 text-center"><i data-lucide="crown" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Eminentia</h3><p class="text-sm text-gray-400">The ultimate personality contest. Showcase your charisma, poise, and oratory skills.</p></div>
+            </div>
+        </section>
+        <!-- Schedule Section -->
+        <section id="schedule" class="reveal">
+            <h2 class="section-title text-center mb-12">Event Schedule</h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="glass-card p-8">
+                    <h3 class="font-poppins font-bold text-3xl text-center mb-6 text-pink-400">Day 1 - Aug 1st</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center space-x-3"><i data-lucide="check-circle-2" class="text-violet-400"></i><span>Terpsichore (Dance)</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="check-circle-2" class="text-violet-400"></i><span>Eminentia (Personality)</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="check-circle-2" class="text-violet-400"></i><span>Eikonographia (Poster Making)</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="check-circle-2" class="text-violet-400"></i><span>Intaglio (Vegetable Carving)</span></li>
+                    </ul>
+                </div>
+                <div class="glass-card p-8">
+                    <h3 class="font-poppins font-bold text-3xl text-center mb-6 text-violet-400">Day 2 - Aug 2nd</h3>
+                     <ul class="space-y-4">
+                        <li class="flex items-center space-x-3"><i data-lucide="check-circle-2" class="text-pink-400"></i><span>Elysian (Music)</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="check-circle-2" class="text-pink-400"></i><span>Elixir (Mad Ads)</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="check-circle-2" class="text-pink-400"></i><span>Entelechia (Fashion Show)</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="check-circle-2" class="text-pink-400"></i><span>Eikosmos (Film Review)</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- Registration/Pricing Section -->
+        <section id="register" class="reveal">
+            <h2 class="section-title text-center mb-12">Register Now!</h2>
+            <div class="text-center mb-10 p-4 bg-yellow-400/10 border border-yellow-400/30 rounded-lg max-w-2xl mx-auto">
+                <p class="font-bold text-yellow-300">
+                    <i data-lucide="bird" class="inline-block -mt-1"></i> Early Bird Pricing ends July 31st! Don't miss out!
+                </p>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="glass-card p-8 border-2 border-pink-500 flex flex-col">
+                    <h3 class="font-poppins font-bold text-3xl mb-2 text-pink-400">Individual Events</h3>
+                    <p class="text-gray-400 mb-6 flex-grow">Register for specific events. Perfect for solo participants or small teams.</p>
+                    <div class="mb-6">
+                        <div class="mb-4"><p class="text-lg font-semibold text-white">Early Bird (till July 31)</p><p class="text-4xl font-bold font-poppins text-pink-400">₹300 <span class="text-lg font-normal text-gray-400">/ event</span></p></div>
+                        <div><p class="text-lg font-semibold text-white">Regular Price</p><p class="text-4xl font-bold font-poppins text-white">₹400 <span class="text-lg font-normal text-gray-400">/ event</span></p></div>
+                    </div>
+                    <a href="#" class="mt-auto w-full text-center bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-full transition-colors">Register as Individual</a>
+                </div>
+                <div class="glass-card p-8 border-2 border-violet-500 flex flex-col">
+                    <h3 class="font-poppins font-bold text-3xl mb-2 text-violet-400">Institutional Package</h3>
+                    <p class="text-gray-400 mb-6 flex-grow">One payment for your institution to participate in a set number of events. Best value!</p>
+                    <div class="mb-6">
+                        <div class="mb-4"><p class="text-lg font-semibold text-white">Early Bird (till July 31)</p><p class="text-4xl font-bold font-poppins text-violet-400">₹4000 <span class="text-lg font-normal text-gray-400">/ 10 events</span></p></div>
+                        <div><p class="text-lg font-semibold text-white">Regular Price</p><p class="text-4xl font-bold font-poppins text-white">₹5000 <span class="text-lg font-normal text-gray-400">/ 10 events</span></p></div>
+                    </div>
+                    <a href="#" class="mt-auto w-full text-center bg-violet-500 hover:bg-violet-600 text-white font-bold py-3 px-6 rounded-full transition-colors">Register as Institution</a>
+                </div>
+            </div>
+        </section>
+        <!-- Prize Pool Section -->
+        <section id="prizes" class="text-center max-w-4xl mx-auto reveal">
+            <h2 class="section-title mb-8">Institutional Prizes</h2>
+            <p class="text-lg text-gray-300 leading-relaxed mb-8">Compete for glory and amazing cash prizes! Applicable only for institutional registrations.</p>
+            <div class="grid sm:grid-cols-3 gap-6 items-center">
+                <div class="glass-card p-6"><p class="text-xl font-semibold text-gray-400">2nd Runner-Up</p><p class="text-4xl font-bold font-poppins text-white">₹2,000</p></div>
+                <div class="glass-card p-8 border-2 border-violet-400" style="animation: pulse-glow 2s infinite ease-in-out; transform: scale(1.1);"><p class="text-2xl font-bold text-violet-400">WINNER</p><p class="text-5xl font-bold font-poppins text-white">₹5,000</p></div>
+                <div class="glass-card p-6"><p class="text-xl font-semibold text-gray-400">1st Runner-Up</p><p class="text-4xl font-bold font-poppins text-white">₹3,000</p></div>
+            </div>
+        </section>
+        <!-- Rules Section -->
+        <section id="rules" class="reveal">
+            <h2 class="section-title text-center mb-12">Rules & Guidelines</h2>
+            <div class="max-w-4xl mx-auto space-y-4">
+                <details class="glass-card p-6 cursor-pointer"><summary class="font-semibold text-lg flex justify-between items-center">General Rules<i data-lucide="chevron-down" class="transition-transform duration-300"></i></summary><div class="mt-4 text-gray-400 space-y-2"><p>• Eligibility: Grades 9-12 & Undergraduates (1st-3rd year).</p><p>• Be present at Gate 20/21 (Residency Road) by 8:30 AM for registration confirmation.</p><p>• On-spot registrations close at 10:30 AM.</p><p>• Bags are subject to checking.</p><p>• Valid photo ID (school/college/government) is mandatory for entry.</p><p>• Entry stamps must be visible at all times.</p></div></details>
+                <details class="glass-card p-6 cursor-pointer"><summary class="font-semibold text-lg flex justify-between items-center">Conduct & Attire<i data-lucide="chevron-down" class="transition-transform duration-300"></i></summary><div class="mt-4 text-gray-400 space-y-2"><p>• Do not wear your institution's uniform.</p><p>• Inappropriate attire, conduct, vulgarity, or mockery will lead to disqualification or other serious action.</p><p>• Follow instructions from event heads and volunteers.</p><p>• Dress Code: Trousers and sleeved shirts only. Shorts, skirts, sleeveless, or ripped clothing is prohibited.</p></div></details>
+                <details class="glass-card p-6 cursor-pointer"><summary class="font-semibold text-lg flex justify-between items-center">Restricted Items<i data-lucide="chevron-down" class="transition-transform duration-300"></i></summary><div class="mt-4 text-gray-400 space-y-2"><p>• No weaponry (knives, scissors, etc.).</p><p>• No inflammable substances (deodorants, perfumes).</p><p>• No illegal substances (alcohol, drugs, vapes, etc.).</p><p>• No outside food, drinks, or water bottles.</p></div></details>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer id="contact" class="bg-black/50 border-t border-t-gray-800 mt-16">
+        <div class="container mx-auto px-6 py-12 text-center">
+            <h2 class="section-title mb-8">Reach Us</h2>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-8">
+                <div class="flex items-center space-x-3"><i data-lucide="phone" class="text-violet-400"></i><a href="tel:8970711094" class="text-lg hover:text-violet-400 transition">89707 11094</a></div>
+                <div class="flex items-center space-x-3"><i data-lucide="mail" class="text-pink-400"></i><a href="mailto:poiesis25.shghs@gmail.com" class="text-lg hover:text-pink-400 transition">poiesis25.shghs@gmail.com</a></div>
+            </div>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="https://www.instagram.com/poiesis.shghs" target="_blank" class="text-gray-400 hover:text-white transition"><i data-lucide="instagram" class="w-7 h-7"></i></a>
+                <a href="https://www.instagram.com/shghs_official" target="_blank" class="text-gray-400 hover:text-white transition"><i data-lucide="instagram" class="w-7 h-7"></i></a>
+                <a href="https://www.instagram.com/shghs.alumni" target="_blank" class="text-gray-400 hover:text-white transition"><i data-lucide="instagram" class="w-7 h-7"></i></a>
+            </div>
+            <p class="text-gray-500 text-sm">&copy; 2025 Sacred Heart Girls' High School. All Rights Reserved.</p>
+            <p class="text-gray-600 text-xs mt-2">Designed with <i data-lucide="heart" class="inline-block w-3 h-3 text-pink-500"></i> for Poiesis 2025</p>
+        </div>
+    </footer>
+    <script>
+        lucide.createIcons();
+        // --- Mobile Menu Toggle ---
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // --- Countdown Timer Logic ---
+        const countdown = () => {
+            const countDate = new Date('August 1, 2025 08:30:00').getTime();
+            const now = new Date().getTime();
+            const gap = countDate - now;
+            const second = 1000, minute = second * 60, hour = minute * 60, day = hour * 24;
+            const textDay = Math.floor(gap / day);
+            const textHour = Math.floor((gap % day) / hour);
+            const textMinute = Math.floor((gap % hour) / minute);
+            const textSecond = Math.floor((gap % minute) / second);
+            const updateField = (id, value) => {
+                const el = document.getElementById(id);
+                if (el.innerText !== String(value).padStart(2, '0')) {
+                    el.innerText = String(value).padStart(2, '0');
+                    el.style.color = '#fde047';
+                    setTimeout(() => { el.style.color = ''; }, 300);
+                }
+            };
+            updateField('days', textDay);
+            updateField('hours', textHour);
+            updateField('minutes', textMinute);
+            updateField('seconds', textSecond);
+        };
+        setInterval(countdown, 1000);
+        // --- Accordion Icon Rotation ---
+        document.querySelectorAll('details').forEach((detail) => {
+            detail.addEventListener('toggle', () => {
+                const icon = detail.querySelector('summary i');
+                icon.style.transform = detail.open ? 'rotate(180deg)' : 'rotate(0deg)';
+            });
+        });
+        // --- Scroll Reveal Animation ---
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        revealElements.forEach(el => revealObserver.observe(el));
+        // --- Hero Canvas Particle Animation ---
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        let particlesArray;
+        class Particle {
+            constructor(x, y, directionX, directionY, size, color) {
+                this.x = x; this.y = y; this.directionX = directionX; this.directionY = directionY;
+                this.size = size; this.color = color;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+            update() {
+                if (this.x > canvas.width || this.x < 0) this.directionX = -this.directionX;
+                if (this.y > canvas.height || this.y < 0) this.directionY = -this.directionY;
+                this.x += this.directionX;
+                this.y += this.directionY;
+                this.draw();
+            }
+        }
+        function initParticles() {
+            particlesArray = [];
+            let numberOfParticles = (canvas.height * canvas.width) / 9000;
+            for (let i = 0; i < numberOfParticles; i++) {
+                let size = (Math.random() * 2) + 1;
+                let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
+                let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+                let directionX = (Math.random() * .4) - .2;
+                let directionY = (Math.random() * .4) - .2;
+                let color = 'rgba(255,255,255,0.6)';
+                particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+            }
+        }
+        function animateParticles() {
+            requestAnimationFrame(animateParticles);
+            ctx.clearRect(0, 0, innerWidth, innerHeight);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+            }
+        }
+        initParticles();
+        animateParticles();
+        window.addEventListener('resize', () => {
+            canvas.width = innerWidth;
+            canvas.height = innerHeight;
+            initParticles();
+        });
+    </script>
+</body>
+</html>
