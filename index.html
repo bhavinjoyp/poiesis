@@ -150,6 +150,16 @@
             transform: translate(-50%, -50%) scale(1);
             pointer-events: all;
         }
+        .category-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: background 0.3s ease;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -204,7 +214,7 @@
                 <a href="#register" class="btn-primary text-white font-bold py-4 px-10 rounded-full text-lg">
                     Register Now
                 </a>
-                <a href="poiesis-2025-brochure.pdf" class="btn-primary text-white font-bold py-4 px-10 rounded-full text-lg">
+                <a href="poiesis-2025-brochure.pdf" target="_blank" class="btn-primary text-white font-bold py-4 px-10 rounded-full text-lg">
                     Download Brochure
                 </a>
             </div>
@@ -224,21 +234,21 @@
             <h2 class="section-title text-center mb-12">The Events</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Event Card: Terpsichore -->
-                <div class="glass-card p-6 text-center flex flex-col"><i data-lucide="music-4" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Terpsichore</h3><p class="text-sm text-gray-400 flex-grow">The ultimate dance-off. Solos, duos, and group performances in Eastern & Western Categories.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Terpsichore">View Rules</button></div>
+                <div class="glass-card p-6 text-center flex flex-col"><div class="flex justify-center gap-2 mb-3"><span class="category-tag bg-pink-500/20 text-pink-300">Solo</span><span class="category-tag bg-teal-500/20 text-teal-300">Duo</span><span class="category-tag bg-amber-500/20 text-amber-300">Group</span></div><i data-lucide="music-4" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Terpsichore</h3><p class="text-sm text-gray-400 flex-grow">The ultimate dance-off. Solos, duos, and group performances in Eastern & Western Categories.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Terpsichore">View Rules</button></div>
                 <!-- Event Card: Elysian -->
-                <div class="glass-card p-6 text-center flex flex-col"><i data-lucide="mic" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Elysian</h3><p class="text-sm text-gray-400 flex-grow">A musical paradise. Showcase your vocal and instrumental talents in solo, duet, or group categories.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Elysian">View Rules</button></div>
+                <div class="glass-card p-6 text-center flex flex-col"><div class="flex justify-center gap-2 mb-3"><span class="category-tag bg-pink-500/20 text-pink-300">Solo</span><span class="category-tag bg-teal-500/20 text-teal-300">Duo</span><span class="category-tag bg-amber-500/20 text-amber-300">Group</span></div><i data-lucide="mic" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Elysian</h3><p class="text-sm text-gray-400 flex-grow">A musical paradise. Showcase your vocal and instrumental talents in solo, duet, or group categories.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Elysian">View Rules</button></div>
                 <!-- Event Card: Elixir -->
-                <div class="glass-card p-6 text-center flex flex-col"><i data-lucide="clapperboard" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Elixir</h3><p class="text-sm text-gray-400 flex-grow">The battle of wits in Mad Ads. Create hilarious and imaginative ads for fictional products.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Elixir">View Rules</button></div>
+                <div class="glass-card p-6 text-center flex flex-col"><div class="flex justify-center gap-2 mb-3"><span class="category-tag bg-amber-500/20 text-amber-300">Group</span></div><i data-lucide="clapperboard" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Elixir</h3><p class="text-sm text-gray-400 flex-grow">The battle of wits in Mad Ads. Create hilarious and imaginative ads for fictional products.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Elixir">View Rules</button></div>
                 <!-- Event Card: Entelechia -->
-                <div class="glass-card p-6 text-center flex flex-col"><i data-lucide="gem" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Entelechia</h3><p class="text-sm text-gray-400 flex-grow">"Strut, Shine, Slay!" A fashion show celebrating transformation and style evolution.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Entelechia">View Rules</button></div>
+                <div class="glass-card p-6 text-center flex flex-col"><div class="flex justify-center gap-2 mb-3"><span class="category-tag bg-amber-500/20 text-amber-300">Group</span></div><i data-lucide="gem" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Entelechia</h3><p class="text-sm text-gray-400 flex-grow">"Strut, Shine, Slay!" A fashion show celebrating transformation and style evolution.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Entelechia">View Rules</button></div>
                 <!-- Event Card: Intaglio -->
-                <div class="glass-card p-6 text-center flex flex-col"><i data-lucide="chef-hat" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Intaglio</h3><p class="text-sm text-gray-400 flex-grow">"Sculpt beauty into every bite." An artistic fruit and vegetable carving competition.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Intaglio">View Rules</button></div>
+                <div class="glass-card p-6 text-center flex flex-col"><div class="flex justify-center gap-2 mb-3"><span class="category-tag bg-pink-500/20 text-pink-300">Solo</span></div><i data-lucide="chef-hat" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Intaglio</h3><p class="text-sm text-gray-400 flex-grow">"Sculpt beauty into every bite." An artistic fruit and vegetable carving competition.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Intaglio">View Rules</button></div>
                 <!-- Event Card: Eikosmos -->
-                <div class="glass-card p-6 text-center flex flex-col"><i data-lucide="film" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Eikosmos</h3><p class="text-sm text-gray-400 flex-grow">"A Universe of Perspectives." An immersive film review event for cinematic storytelling.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Eikosmos">View Rules</button></div>
+                <div class="glass-card p-6 text-center flex flex-col"><div class="flex justify-center gap-2 mb-3"><span class="category-tag bg-pink-500/20 text-pink-300">Solo</span></div><i data-lucide="film" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Eikosmos</h3><p class="text-sm text-gray-400 flex-grow">"A Universe of Perspectives." An immersive film review event for cinematic storytelling.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Eikosmos">View Rules</button></div>
                 <!-- Event Card: Eikonographia -->
-                <div class="glass-card p-6 text-center flex flex-col"><i data-lucide="palette" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Eikonographia</h3><p class="text-sm text-gray-400 flex-grow">Handmade poster making competition. Bring stories to life with paper and color.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Eikonographia">View Rules</button></div>
+                <div class="glass-card p-6 text-center flex flex-col"><div class="flex justify-center gap-2 mb-3"><span class="category-tag bg-teal-500/20 text-teal-300">Duo</span><span class="category-tag bg-amber-500/20 text-amber-300">Group</span></div><i data-lucide="palette" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Eikonographia</h3><p class="text-sm text-gray-400 flex-grow">Handmade poster making competition. Bring stories to life with paper and color.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Eikonographia">View Rules</button></div>
                 <!-- Event Card: Eminentia -->
-                <div class="glass-card p-6 text-center flex flex-col"><i data-lucide="crown" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Eminentia</h3><p class="text-sm text-gray-400 flex-grow">The ultimate personality contest. Showcase your charisma, poise, and oratory skills.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Eminentia">View Rules</button></div>
+                <div class="glass-card p-6 text-center flex flex-col"><div class="flex justify-center gap-2 mb-3"><span class="category-tag bg-pink-500/20 text-pink-300">Solo</span></div><i data-lucide="crown" class="event-icon"></i><h3 class="font-poppins font-bold text-2xl mb-2 text-white">Eminentia</h3><p class="text-sm text-gray-400 flex-grow">The ultimate personality contest. Showcase your charisma, poise, and oratory skills.</p><button class="event-rules-btn mt-4 text-sm text-violet-300 hover:text-white transition" data-event="Eminentia">View Rules</button></div>
             </div>
         </section>
         <!-- Schedule Section -->
@@ -268,29 +278,55 @@
         <!-- Registration/Pricing Section -->
         <section id="register" class="reveal">
             <h2 class="section-title text-center mb-12">Register Now!</h2>
-            <div class="text-center mb-10 p-4 bg-yellow-400/10 border border-yellow-400/30 rounded-lg max-w-2xl mx-auto">
-                <p class="font-bold text-yellow-300">
-                    <i data-lucide="bird" class="inline-block -mt-1"></i> Early Bird Pricing ends July 31st! Don't miss out!
+            <div class="text-center mb-10 p-4 bg-yellow-400/10 border border-yellow-400/30 rounded-lg max-w-4xl mx-auto">
+                <p class="font-bold text-yellow-300 text-lg">
+                    <i data-lucide="calendar-days" class="inline-block -mt-1"></i> Early Bird Registration: <span class="text-white">July 15 – July 31</span>
+                </p>
+                <p class="text-sm text-yellow-200/80 mt-1">
+                    On-Spot (Regular) Registration: August 1 – August 2
                 </p>
             </div>
-            <div class="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <div class="glass-card p-8 border-2 border-pink-500 flex flex-col">
-                    <h3 class="font-poppins font-bold text-3xl mb-2 text-pink-400">Individual Events</h3>
-                    <p class="text-gray-400 mb-6 flex-grow">Register for specific events. Perfect for solo participants or small teams.</p>
-                    <div class="mb-6">
-                        <div class="mb-4"><p class="text-lg font-semibold text-white">Early Bird (till July 31)</p><p class="text-4xl font-bold font-poppins text-pink-400">₹300 <span class="text-lg font-normal text-gray-400">/ event</span></p></div>
-                        <div><p class="text-lg font-semibold text-white">Regular Price</p><p class="text-4xl font-bold font-poppins text-white">₹400 <span class="text-lg font-normal text-gray-400">/ event</span></p></div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                <!-- Solo Pricing -->
+                <div class="glass-card p-8 border-2 border-pink-500/50 flex flex-col">
+                    <h3 class="font-poppins font-bold text-3xl mb-2 text-pink-400">Solo</h3>
+                    <p class="text-gray-400 mb-6 flex-grow">For individual performers.</p>
+                    <div class="mb-6 space-y-4">
+                        <div><p class="text-lg font-semibold text-white">Early Bird</p><p class="text-4xl font-bold font-poppins text-pink-400">₹200</p></div>
+                        <div><p class="text-lg font-semibold text-white">Regular / On-Spot</p><p class="text-4xl font-bold font-poppins text-white">₹250</p></div>
                     </div>
-                    <a href="#" class="mt-auto w-full text-center bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-full transition-colors">Register as Individual</a>
+                    <a href="#" class="mt-auto w-full text-center bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-full transition-colors">Register Solo</a>
                 </div>
-                <div class="glass-card p-8 border-2 border-violet-500 flex flex-col">
-                    <h3 class="font-poppins font-bold text-3xl mb-2 text-violet-400">Institutional Package</h3>
-                    <p class="text-gray-400 mb-6 flex-grow">One payment for your institution to participate in a set number of events. Best value!</p>
-                    <div class="mb-6">
-                        <div class="mb-4"><p class="text-lg font-semibold text-white">Early Bird (till July 31)</p><p class="text-4xl font-bold font-poppins text-violet-400">₹4000 <span class="text-lg font-normal text-gray-400">/ 10 events</span></p></div>
-                        <div><p class="text-lg font-semibold text-white">Regular Price</p><p class="text-4xl font-bold font-poppins text-white">₹5000 <span class="text-lg font-normal text-gray-400">/ 10 events</span></p></div>
+                <!-- Duo Pricing -->
+                <div class="glass-card p-8 border-2 border-fuchsia-500/50 flex flex-col">
+                    <h3 class="font-poppins font-bold text-3xl mb-2 text-fuchsia-400">Duo</h3>
+                    <p class="text-gray-400 mb-6 flex-grow">For pairs and partners.</p>
+                    <div class="mb-6 space-y-4">
+                        <div><p class="text-lg font-semibold text-white">Early Bird</p><p class="text-4xl font-bold font-poppins text-fuchsia-400">₹300</p></div>
+                        <div><p class="text-lg font-semibold text-white">Regular / On-Spot</p><p class="text-4xl font-bold font-poppins text-white">₹350</p></div>
                     </div>
-                    <a href="#" class="mt-auto w-full text-center bg-violet-500 hover:bg-violet-600 text-white font-bold py-3 px-6 rounded-full transition-colors">Register as Institution</a>
+                    <a href="#" class="mt-auto w-full text-center bg-fuchsia-500 hover:bg-fuchsia-600 text-white font-bold py-3 px-6 rounded-full transition-colors">Register Duo</a>
+                </div>
+                <!-- Group Pricing -->
+                <div class="glass-card p-8 border-2 border-purple-500/50 flex flex-col">
+                    <h3 class="font-poppins font-bold text-3xl mb-2 text-purple-400">Group</h3>
+                    <p class="text-gray-400 mb-6 flex-grow">For teams and crews.</p>
+                    <div class="mb-6 space-y-4">
+                        <div><p class="text-lg font-semibold text-white">Early Bird</p><p class="text-4xl font-bold font-poppins text-purple-400">₹500</p></div>
+                        <div><p class="text-lg font-semibold text-white">Regular / On-Spot</p><p class="text-4xl font-bold font-poppins text-white">₹550</p></div>
+                    </div>
+                    <a href="#" class="mt-auto w-full text-center bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-full transition-colors">Register Group</a>
+                </div>
+                <!-- Institutional Pricing -->
+                <div class="glass-card p-8 border-2 border-violet-500 flex flex-col bg-violet-500/10">
+                    <h3 class="font-poppins font-bold text-3xl mb-2 text-violet-300">Institutional</h3>
+                    <p class="text-gray-400 mb-6 flex-grow">Best value for schools & colleges.</p>
+                    <div class="mb-6 space-y-4">
+                        <div><p class="text-lg font-semibold text-white">Early Bird</p><p class="text-4xl font-bold font-poppins text-violet-400">₹4000</p></div>
+                        <div><p class="text-lg font-semibold text-white">Regular / On-Spot</p><p class="text-4xl font-bold font-poppins text-white">₹5000</p></div>
+                    </div>
+                    <a href="#" class="mt-auto w-full text-center bg-violet-500 hover:bg-violet-600 text-white font-bold py-3 px-6 rounded-full transition-colors">Register Institution</a>
                 </div>
             </div>
         </section>
@@ -313,6 +349,7 @@
                 <details class="glass-card p-6" open><summary class="font-semibold text-lg flex justify-between items-center">Restricted Items</summary><div class="mt-4 text-gray-400 space-y-2"><p>• No weaponry (knives, scissors, etc.).</p><p>• No inflammable substances (deodorants, perfumes).</p><p>• No illegal substances (alcohol, drugs, vapes, etc.).</p><p>• No outside food, drinks, or water bottles.</p></div></details>
             </div>
         </section>
+
     </main>
     <!-- Event Rules Modal -->
     <div id="rules-modal-backdrop" class="modal-backdrop">
