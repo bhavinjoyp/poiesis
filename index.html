@@ -23,6 +23,16 @@
             animation: gradientBG 15s ease infinite;
             position: relative;
         }
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 15rem;
+            background: linear-gradient(to top, #000000, rgba(0,0,0,0));
+            z-index: 2;
+        }
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -436,7 +446,7 @@
             "Eikosmos": [
                 "Individual event",
                 "No use of Internet, ChatGPT, AI, etc.",
-                "Bring notepad and stationery (laptop allowed but no internet)",
+                "Bring notepad and stationery",
                 "Focus on film themes, cinematic techniques, narrative, performances",
                 "Constructive and culturally sensitive criticism required",
                 "Be mindful of time allocated for review completion",
@@ -447,7 +457,7 @@
                 "Time duration: 2 hours",
                 "Theme: 'The World Through My Phone Screen'",
                 "Reflect how social media shapes our filtered reality",
-                "Participants bring own materials (chart paper, sketch pens, etc.)",
+                "Participants bring own materials (cartridge paper(A1), sketch pens, crayons, watercolours, markers, etc.)",
                 "Only handmade work allowed - no stencils or digital elements",
                 "Posters must clearly reflect the given theme"
             ],
@@ -510,7 +520,8 @@
                 const rules = eventRules[eventName];
                 
                 modalTitle.innerText = `${eventName} - Rules`;
-                modalBody.innerHTML = rules.map(rule => `<p class="flex items-start"><i data-lucide="check-square" class="w-4 h-4 mr-2 mt-1 text-pink-400 flex-shrink-0"></i><span>${rule}</span></p>`).join('');
+                modalBody.innerHTML = rules.map(rule => `<p class="flex items-start"><i data-lucide="check-square" class="w-4 h-4 mr-2 mt-1 text-pink-400 flex-shrink-0"></i><span>${rule}</span></p>`).join('')
+                    + `<p class="mt-4 text-xs text-gray-300 italic">For more details, please refer to the Poiesis brochure.</p>`;
                 lucide.createIcons(); // Re-render icons in the modal
 
                 modalBackdrop.classList.add('visible');
