@@ -3,26 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Poiesis 2025 - An Inter-School/Collegiate Cultural Fest by Sacred Heart Girls' High School. Dance, Music, Art, Fashion & More. Register now for August 1st & 2nd!">
+    <meta name="keywords" content="Poiesis, Cultural Fest, Sacred Heart, School Competition, Dance, Music, Art, Bangalore, Inter-School">
+    <meta name="author" content="Sacred Heart Girls' High School">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bhavinjoyp.github.io/poiesis/">
+    <meta property="og:title" content="Poiesis 2025 | Unleash Your Creativity">
+    <meta property="og:description" content="Join the ultimate Inter-School/Collegiate Cultural Fest featuring Dance, Music, Art, Fashion and more. August 1st & 2nd, 2025.">
+    <meta property="og:image" content="https://bhavinjoyp.github.io/poiesis/Logo.jpeg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bhavinjoyp.github.io/poiesis/">
+    <meta property="twitter:title" content="Poiesis 2025 | Unleash Your Creativity">
+    <meta property="twitter:description" content="Join the ultimate Inter-School/Collegiate Cultural Fest featuring Dance, Music, Art, Fashion and more. August 1st & 2nd, 2025.">
+    <meta property="twitter:image" content="https://bhavinjoyp.github.io/poiesis/Logo.jpeg">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/jpeg" href="Logo.jpeg">
+    <link rel="apple-touch-icon" href="Logo.jpeg">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
     <title>Poiesis 2025 | Unleash Your Creativity</title>
+    
+    <!-- Performance optimized font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Core CSS frameworks -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Inter:wght@400;500;600&display=swap" rel="Categoriesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
+        /* CSS Reset and Base Styles */
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background-color: #000000;
             color: #e5e5e5;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            scroll-behavior: smooth;
         }
+        
         .font-poppins {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
+        
         .hero-bg {
-            background: linear-gradient(-45deg, #1e0033, #3c004a, #d946ef,rgb(80, 31, 158));
+            background: linear-gradient(-45deg, #1e0033, #3c004a, #d946ef, rgb(80, 31, 158));
+            background: -webkit-linear-gradient(-45deg, #1e0033, #3c004a, #d946ef, rgb(80, 31, 158));
+            background: -moz-linear-gradient(-45deg, #1e0033, #3c004a, #d946ef, rgb(80, 31, 158));
+            background: -o-linear-gradient(-45deg, #1e0033, #3c004a, #d946ef, rgb(80, 31, 158));
             background-size: 400% 400%;
+            -webkit-animation: gradientBG 15s ease infinite;
+            -moz-animation: gradientBG 15s ease infinite;
+            -o-animation: gradientBG 15s ease infinite;
             animation: gradientBG 15s ease infinite;
             position: relative;
         }
+        
         .hero-bg::after {
             content: '';
             position: absolute;
@@ -31,13 +82,33 @@
             right: 0;
             height: 15rem;
             background: linear-gradient(to top, #000000, rgba(0,0,0,0));
+            background: -webkit-linear-gradient(to top, #000000, rgba(0,0,0,0));
+            background: -moz-linear-gradient(to top, #000000, rgba(0,0,0,0));
+            background: -o-linear-gradient(to top, #000000, rgba(0,0,0,0));
             z-index: 2;
+        }
+        
+        @-webkit-keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @-moz-keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @-o-keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
+        
         #particle-canvas {
             position: absolute;
             top: 0;
@@ -45,48 +116,115 @@
             width: 100%;
             height: 100%;
             z-index: 1;
+            pointer-events: none;
         }
+        
         .glass-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
+            -moz-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 1.5rem;
+            -webkit-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            -moz-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            -o-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            -webkit-transform: translateY(0);
+            -moz-transform: translateY(0);
+            -ms-transform: translateY(0);
+            -o-transform: translateY(0);
             transform: translateY(0);
         }
+        
         .glass-card:hover {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.25);
+            -webkit-transform: translateY(-10px) scale(1.02);
+            -moz-transform: translateY(-10px) scale(1.02);
+            -ms-transform: translateY(-10px) scale(1.02);
+            -o-transform: translateY(-10px) scale(1.02);
             transform: translateY(-10px) scale(1.02);
+            -webkit-box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            -moz-box-shadow: 0 20px 40px rgba(0,0,0,0.2);
             box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
+        
         .btn-primary {
             background: linear-gradient(90deg, #8B5CF6, #EC4899);
+            background: -webkit-linear-gradient(90deg, #8B5CF6, #EC4899);
+            background: -moz-linear-gradient(90deg, #8B5CF6, #EC4899);
+            background: -o-linear-gradient(90deg, #8B5CF6, #EC4899);
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
             transition: all 0.3s ease;
+            -webkit-box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+            -moz-box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
             box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+            -webkit-animation: pulse-glow 2s infinite;
+            -moz-animation: pulse-glow 2s infinite;
+            -o-animation: pulse-glow 2s infinite;
             animation: pulse-glow 2s infinite;
         }
+        
         .btn-primary:hover {
+            -webkit-transform: scale(1.05);
+            -moz-transform: scale(1.05);
+            -ms-transform: scale(1.05);
+            -o-transform: scale(1.05);
             transform: scale(1.05);
+            -webkit-box-shadow: 0 6px 25px rgba(236, 72, 153, 0.6);
+            -moz-box-shadow: 0 6px 25px rgba(236, 72, 153, 0.6);
             box-shadow: 0 6px 25px rgba(236, 72, 153, 0.6);
+            -webkit-animation: none;
+            -moz-animation: none;
+            -o-animation: none;
             animation: none;
+        }
+        
+        @-webkit-keyframes pulse-glow {
+            0% { -webkit-box-shadow: 0 0 5px #ec4899, 0 0 10px #ec4899, 0 0 15px #8B5CF6, 0 0 20px #8B5CF6; }
+            50% { -webkit-box-shadow: 0 0 10px #ec4899, 0 0 15px #ec4899, 0 0 25px #8B5CF6, 0 0 30px #8B5CF6; }
+            100% { -webkit-box-shadow: 0 0 5px #ec4899, 0 0 10px #ec4899, 0 0 15px #8B5CF6, 0 0 20px #8B5CF6; }
+        }
+        @-moz-keyframes pulse-glow {
+            0% { -moz-box-shadow: 0 0 5px #ec4899, 0 0 10px #ec4899, 0 0 15px #8B5CF6, 0 0 20px #8B5CF6; }
+            50% { -moz-box-shadow: 0 0 10px #ec4899, 0 0 15px #ec4899, 0 0 25px #8B5CF6, 0 0 30px #8B5CF6; }
+            100% { -moz-box-shadow: 0 0 5px #ec4899, 0 0 10px #ec4899, 0 0 15px #8B5CF6, 0 0 20px #8B5CF6; }
         }
         @keyframes pulse-glow {
             0% { box-shadow: 0 0 5px #ec4899, 0 0 10px #ec4899, 0 0 15px #8B5CF6, 0 0 20px #8B5CF6; }
             50% { box-shadow: 0 0 10px #ec4899, 0 0 15px #ec4899, 0 0 25px #8B5CF6, 0 0 30px #8B5CF6; }
             100% { box-shadow: 0 0 5px #ec4899, 0 0 10px #ec4899, 0 0 15px #8B5CF6, 0 0 20px #8B5CF6; }
         }
+        
         .section-title {
             font-family: 'Poppins', sans-serif;
             font-weight: 900;
             font-size: clamp(2.5rem, 5vw, 4rem);
             background: linear-gradient(90deg, #a78bfa, #f472b6, #fde047);
+            background: -webkit-linear-gradient(90deg, #a78bfa, #f472b6, #fde047);
+            background: -moz-linear-gradient(90deg, #a78bfa, #f472b6, #fde047);
+            background: -o-linear-gradient(90deg, #a78bfa, #f472b6, #fde047);
             -webkit-background-clip: text;
+            -moz-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
+            -moz-text-fill-color: transparent;
+            color: transparent; /* Fallback for unsupported browsers */
             text-shadow: 0 0 20px rgba(244, 114, 182, 0.3);
         }
+        
+        /* Fallback for browsers that don't support background-clip: text */
+        @supports not (-webkit-background-clip: text) {
+            .section-title {
+                color: #a78bfa;
+                -webkit-text-fill-color: initial;
+                -moz-text-fill-color: initial;
+            }
+        }
+        
         .countdown-item {
             background: rgba(0, 0, 0, 0.2);
             border-radius: 1rem;
@@ -94,31 +232,64 @@
             text-align: center;
             border: 1px solid rgba(255,255,255,0.1);
         }
+        
         .countdown-item div:first-child {
+            -webkit-transition: color 0.3s ease;
+            -moz-transition: color 0.3s ease;
+            -o-transition: color 0.3s ease;
             transition: color 0.3s ease;
         }
+        
         .event-icon {
             width: 48px;
             height: 48px;
             margin: 0 auto 1rem;
             color: #d8b4fe;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
             transition: all 0.3s ease;
         }
+        
         .glass-card:hover .event-icon {
             color: #fde047;
+            -webkit-transform: scale(1.2) rotate(-15deg);
+            -moz-transform: scale(1.2) rotate(-15deg);
+            -ms-transform: scale(1.2) rotate(-15deg);
+            -o-transform: scale(1.2) rotate(-15deg);
             transform: scale(1.2) rotate(-15deg);
         }
-        details > summary { list-style: none; }
+        
+        /* Cross-browser details/summary styling */
+        details > summary { 
+            list-style: none;
+            cursor: pointer;
+        }
         details > summary::-webkit-details-marker { display: none; }
+        details > summary::-moz-details-marker { display: none; }
+        
         .reveal {
             opacity: 0;
+            -webkit-transform: translateY(40px);
+            -moz-transform: translateY(40px);
+            -ms-transform: translateY(40px);
+            -o-transform: translateY(40px);
             transform: translateY(40px);
+            -webkit-transition: opacity 0.8s ease-out, -webkit-transform 0.8s ease-out;
+            -moz-transition: opacity 0.8s ease-out, -moz-transform 0.8s ease-out;
+            -o-transition: opacity 0.8s ease-out, -o-transform 0.8s ease-out;
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
+        
         .reveal.visible {
             opacity: 1;
+            -webkit-transform: translateY(0);
+            -moz-transform: translateY(0);
+            -ms-transform: translateY(0);
+            -o-transform: translateY(0);
             transform: translateY(0);
         }
+        
         .modal-backdrop {
             position: fixed;
             top: 0;
@@ -128,19 +299,29 @@
             background: rgba(0,0,0,0.7);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
+            -moz-backdrop-filter: blur(8px);
             z-index: 100;
             opacity: 0;
+            -webkit-transition: opacity 0.3s ease;
+            -moz-transition: opacity 0.3s ease;
+            -o-transition: opacity 0.3s ease;
             transition: opacity 0.3s ease;
             pointer-events: none;
         }
+        
         .modal-backdrop.visible {
             opacity: 1;
             pointer-events: all;
         }
+        
         .modal-content {
             position: fixed;
             top: 50%;
             left: 50%;
+            -webkit-transform: translate(-50%, -50%) scale(0.9);
+            -moz-transform: translate(-50%, -50%) scale(0.9);
+            -ms-transform: translate(-50%, -50%) scale(0.9);
+            -o-transform: translate(-50%, -50%) scale(0.9);
             transform: translate(-50%, -50%) scale(0.9);
             z-index: 101;
             background: rgba(20, 20, 20, 0.8);
@@ -152,14 +333,23 @@
             max-height: 80vh;
             overflow-y: auto;
             opacity: 0;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
             transition: all 0.3s ease;
             pointer-events: none;
         }
+        
         .modal-content.visible {
             opacity: 1;
+            -webkit-transform: translate(-50%, -50%) scale(1);
+            -moz-transform: translate(-50%, -50%) scale(1);
+            -ms-transform: translate(-50%, -50%) scale(1);
+            -o-transform: translate(-50%, -50%) scale(1);
             transform: translate(-50%, -50%) scale(1);
             pointer-events: all;
         }
+        
         .category-tag {
             display: inline-block;
             padding: 0.25rem 0.75rem;
@@ -168,27 +358,83 @@
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            -webkit-transition: background 0.3s ease;
+            -moz-transition: background 0.3s ease;
+            -o-transition: background 0.3s ease;
             transition: background 0.3s ease;
+        }
+        
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                -webkit-animation-duration: 0.01ms !important;
+                -moz-animation-duration: 0.01ms !important;
+                -o-animation-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+                -webkit-animation-iteration-count: 1 !important;
+                -moz-animation-iteration-count: 1 !important;
+                -o-animation-iteration-count: 1 !important;
+                animation-iteration-count: 1 !important;
+                -webkit-transition-duration: 0.01ms !important;
+                -moz-transition-duration: 0.01ms !important;
+                -o-transition-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+        
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .glass-card {
+                border: 2px solid rgba(255, 255, 255, 0.5);
+            }
+            .btn-primary {
+                border: 2px solid #fff;
+            }
+        }
+        
+        /* Print styles */
+        @media print {
+            .hero-bg, #particle-canvas {
+                display: none;
+            }
+            body {
+                background: white;
+                color: black;
+            }
         }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-0 bg-black/30 backdrop-blur-sm">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <button id="mobile-menu-btn" class="md:hidden text-black">
+            <div class="flex items-center">
+                <img src="Logo.jpeg" alt="Poiesis 2025 Logo" class="w-8 h-8 mr-2 rounded-full">
+                <span class="font-poppins font-bold text-white text-lg">Poiesis 2025</span>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none focus:ring-2 focus:ring-violet-400 p-2 rounded" aria-label="Toggle mobile menu">
                 <i data-lucide="menu"></i>
             </button>
         </div>
         <!-- Mobile Menu -->
+        <nav id="mobile-menu" class="hidden md:hidden bg-black/90 backdrop-blur-sm">
+            <div class="container mx-auto px-6 py-4">
+                <a href="#about" class="block py-2 text-white hover:text-violet-400 transition">About</a>
+                <a href="#events" class="block py-2 text-white hover:text-violet-400 transition">Events</a>
+                <a href="#schedule" class="block py-2 text-white hover:text-violet-400 transition">Schedule</a>
+                <a href="#register" class="block py-2 text-white hover:text-violet-400 transition">Register</a>
+                <a href="#contact" class="block py-2 text-white hover:text-violet-400 transition">Contact</a>
+            </div>
+        </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero-bg min-h-screen flex items-center justify-center pt-20 overflow-hidden">
         <canvas id="particle-canvas"></canvas>
-        <div class="text-center text-white px-6 z-10">
-            <img src="Logo.jpeg " alt="Poiesis 2025 Logo" class="mx-auto mb-6 w-40 h-40 rounded-full shadow-lg border-4 border-violet-400/40 bg-black/40 object-contain" loading="eager" />
+        <div class="text-center text-white px-6 z-10 relative">
+            <img src="Logo.jpeg" alt="Poiesis 2025 - Sacred Heart Girls' High School Cultural Fest Logo" class="mx-auto mb-6 w-40 h-40 rounded-full shadow-lg border-4 border-violet-400/40 bg-black/40 object-contain" loading="eager" />
             <h1 class="text-5xl md:text-8xl font-black font-poppins uppercase tracking-wider" style="text-shadow: 0 0 30px rgba(236, 72, 153, 0.8);">
                 POIESIS 2025
             </h1>
@@ -397,7 +643,14 @@
         </div>
     </footer>
     <script>
-        lucide.createIcons();
+        // Initialize Lucide icons safely
+        try {
+            if (typeof lucide !== 'undefined' && lucide.createIcons) {
+                lucide.createIcons();
+            }
+        } catch (error) {
+            console.warn('Lucide icons failed to load:', error);
+        }
 
         // --- Event Rules Data ---
         const eventRules = {
@@ -473,141 +726,370 @@
             ]
         };
 
-        // --- Mobile Menu Toggle ---
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        // --- Countdown Timer Logic ---
-        const countdown = () => {
-            const countDate = new Date('August 1, 2025 08:30:00').getTime();
-            const now = new Date().getTime();
-            const gap = countDate - now;
-            const second = 1000, minute = second * 60, hour = minute * 60, day = hour * 24;
-            const textDay = Math.floor(gap / day);
-            const textHour = Math.floor((gap % day) / hour);
-            const textMinute = Math.floor((gap % hour) / minute);
-            const textSecond = Math.floor((gap % minute) / second);
-            const updateField = (id, value) => {
-                const el = document.getElementById(id);
-                if (el.innerText !== String(value).padStart(2, '0')) {
-                    el.innerText = String(value).padStart(2, '0');
-                    el.style.color = '#fde047';
-                    setTimeout(() => { el.style.color = ''; }, 300);
-                }
-            };
-            updateField('days', textDay);
-            updateField('hours', textHour);
-            updateField('minutes', textMinute);
-            updateField('seconds', textSecond);
-        };
-        setInterval(countdown, 1000);
-        
-        // --- Accordion Icon Rotation (No longer needed as details are always open) ---
-        /* document.querySelectorAll('details').forEach((detail) => {
-            detail.addEventListener('toggle', () => {
-                const icon = detail.querySelector('summary i');
-                icon.style.transform = detail.open ? 'rotate(180deg)' : 'rotate(0deg)';
-            });
-        }); */
+        // --- DOM Ready Function (Cross-browser compatible) ---
+        function domReady(fn) {
+            if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                setTimeout(fn, 1);
+            } else {
+                document.addEventListener('DOMContentLoaded', fn);
+            }
+        }
 
-        // --- Event Rules Modal Logic ---
-        const modalBackdrop = document.getElementById('rules-modal-backdrop');
-        const modalContent = document.getElementById('rules-modal-content');
-        const modalTitle = document.getElementById('modal-title');
-        const modalBody = document.getElementById('modal-body');
-        const modalCloseBtn = document.getElementById('modal-close-btn');
-
-        document.querySelectorAll('.event-rules-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                const eventName = button.dataset.event;
-                const rules = eventRules[eventName];
+        // --- Mobile Menu Toggle with Error Handling ---
+        domReady(function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
                 
-                modalTitle.innerText = `${eventName} - Rules`;
-                modalBody.innerHTML = rules.map(rule => `<p class="flex items-start"><i data-lucide="check-square" class="w-4 h-4 mr-2 mt-1 text-pink-400 flex-shrink-0"></i><span>${rule}</span></p>`).join('')
-                    + `<p class="mt-4 text-xs text-gray-300 italic">For more details, please refer to the Poiesis brochure.</p>`;
-                lucide.createIcons(); // Re-render icons in the modal
-
-                modalBackdrop.classList.add('visible');
-                modalContent.classList.add('visible');
-            });
-        });
-
-        const closeModal = () => {
-            modalBackdrop.classList.remove('visible');
-            modalContent.classList.remove('visible');
-        };
-
-        modalCloseBtn.addEventListener('click', closeModal);
-        modalBackdrop.addEventListener('click', (e) => {
-            if (e.target === modalBackdrop) {
-                closeModal();
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+                
+                // Close mobile menu when clicking on menu links
+                const menuLinks = mobileMenu.querySelectorAll('a');
+                menuLinks.forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
             }
         });
 
-        // --- Scroll Reveal Animation ---
-        const revealElements = document.querySelectorAll('.reveal');
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+        // --- Countdown Timer Logic with Error Handling ---
+        function updateCountdown() {
+            try {
+                const countDate = new Date('August 1, 2025 08:30:00').getTime();
+                const now = new Date().getTime();
+                const gap = countDate - now;
+                
+                if (gap < 0) {
+                    // Event has passed
+                    ['days', 'hours', 'minutes', 'seconds'].forEach(function(id) {
+                        const el = document.getElementById(id);
+                        if (el) el.textContent = '00';
+                    });
+                    return;
+                }
+                
+                const second = 1000;
+                const minute = second * 60;
+                const hour = minute * 60;
+                const day = hour * 24;
+                
+                const textDay = Math.floor(gap / day);
+                const textHour = Math.floor((gap % day) / hour);
+                const textMinute = Math.floor((gap % hour) / minute);
+                const textSecond = Math.floor((gap % minute) / second);
+                
+                function updateField(id, value) {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        const newValue = String(value).padStart(2, '0');
+                        if (el.textContent !== newValue) {
+                            el.textContent = newValue;
+                            el.style.color = '#fde047';
+                            setTimeout(function() { 
+                                el.style.color = ''; 
+                            }, 300);
+                        }
+                    }
+                }
+                
+                updateField('days', textDay);
+                updateField('hours', textHour);
+                updateField('minutes', textMinute);
+                updateField('seconds', textSecond);
+            } catch (error) {
+                console.warn('Countdown timer error:', error);
+            }
+        }
+        
+        // Start countdown
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // --- Event Rules Modal Logic with Error Handling ---
+        domReady(function() {
+            const modalBackdrop = document.getElementById('rules-modal-backdrop');
+            const modalContent = document.getElementById('rules-modal-content');
+            const modalTitle = document.getElementById('modal-title');
+            const modalBody = document.getElementById('modal-body');
+            const modalCloseBtn = document.getElementById('modal-close-btn');
+
+            if (!modalBackdrop || !modalContent || !modalTitle || !modalBody || !modalCloseBtn) {
+                console.warn('Modal elements not found');
+                return;
+            }
+
+            function openModal(eventName) {
+                try {
+                    const rules = eventRules[eventName];
+                    if (!rules) {
+                        console.warn('Rules not found for event:', eventName);
+                        return;
+                    }
+                    
+                    modalTitle.textContent = eventName + ' - Rules';
+                    modalBody.innerHTML = rules.map(function(rule) {
+                        return '<p class="flex items-start"><i data-lucide="check-square" class="w-4 h-4 mr-2 mt-1 text-pink-400 flex-shrink-0"></i><span>' + rule + '</span></p>';
+                    }).join('') + '<p class="mt-4 text-xs text-gray-300 italic">For more details, please refer to the Poiesis brochure.</p>';
+                    
+                    // Re-create icons for modal content
+                    try {
+                        if (typeof lucide !== 'undefined' && lucide.createIcons) {
+                            lucide.createIcons();
+                        }
+                    } catch (iconError) {
+                        console.warn('Failed to create icons in modal:', iconError);
+                    }
+
+                    modalBackdrop.classList.add('visible');
+                    modalContent.classList.add('visible');
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                } catch (error) {
+                    console.error('Error opening modal:', error);
+                }
+            }
+
+            function closeModal() {
+                try {
+                    modalBackdrop.classList.remove('visible');
+                    modalContent.classList.remove('visible');
+                    document.body.style.overflow = ''; // Restore scrolling
+                } catch (error) {
+                    console.error('Error closing modal:', error);
+                }
+            }
+
+            // Event listeners for modal
+            document.querySelectorAll('.event-rules-btn').forEach(function(button) {
+                button.addEventListener('click', function() {
+                    const eventName = button.dataset.event;
+                    if (eventName) {
+                        openModal(eventName);
+                    }
+                });
+            });
+
+            modalCloseBtn.addEventListener('click', closeModal);
+            
+            modalBackdrop.addEventListener('click', function(e) {
+                if (e.target === modalBackdrop) {
+                    closeModal();
                 }
             });
-        }, { threshold: 0.1 });
-        revealElements.forEach(el => revealObserver.observe(el));
-        // --- Hero Canvas Particle Animation ---
-        const canvas = document.getElementById('particle-canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        let particlesArray;
-        class Particle {
-            constructor(x, y, directionX, directionY, size, color) {
-                this.x = x; this.y = y; this.directionX = directionX; this.directionY = directionY;
-                this.size = size; this.color = color;
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-                ctx.fillStyle = this.color;
-                ctx.fill();
-            }
-            update() {
-                if (this.x > canvas.width || this.x < 0) this.directionX = -this.directionX;
-                if (this.y > canvas.height || this.y < 0) this.directionY = -this.directionY;
-                this.x += this.directionX;
-                this.y += this.directionY;
-                this.draw();
-            }
-        }
-        function initParticles() {
-            particlesArray = [];
-            let numberOfParticles = (canvas.height * canvas.width) / 9000;
-            for (let i = 0; i < numberOfParticles; i++) {
-                let size = (Math.random() * 2) + 1;
-                let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
-                let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
-                let directionX = (Math.random() * .4) - .2;
-                let directionY = (Math.random() * .4) - .2;
-                let color = 'rgba(255,255,255,0.6)';
-                particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
-            }
-        }
-        function animateParticles() {
-            requestAnimationFrame(animateParticles);
-            ctx.clearRect(0, 0, innerWidth, innerHeight);
-            for (let i = 0; i < particlesArray.length; i++) {
-                particlesArray[i].update();
-            }
-        }
-        initParticles();
-        animateParticles();
-        window.addEventListener('resize', () => {
-            canvas.width = innerWidth;
-            canvas.height = innerHeight;
-            initParticles();
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modalBackdrop.classList.contains('visible')) {
+                    closeModal();
+                }
+            });
         });
+
+        // --- Scroll Reveal Animation with Intersection Observer ---
+        domReady(function() {
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            // Check if Intersection Observer is supported
+            if ('IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, { 
+                    threshold: 0.1,
+                    rootMargin: '50px'
+                });
+                
+                revealElements.forEach(function(el) {
+                    revealObserver.observe(el);
+                });
+            } else {
+                // Fallback for older browsers
+                revealElements.forEach(function(el) {
+                    el.classList.add('visible');
+                });
+            }
+        });
+
+        // --- Hero Canvas Particle Animation with Error Handling ---
+        domReady(function() {
+            const canvas = document.getElementById('particle-canvas');
+            if (!canvas) return;
+            
+            try {
+                const ctx = canvas.getContext('2d');
+                if (!ctx) {
+                    console.warn('Canvas context not supported');
+                    return;
+                }
+                
+                let particlesArray = [];
+                let animationId;
+                
+                function resizeCanvas() {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                }
+                
+                resizeCanvas();
+                
+                class Particle {
+                    constructor(x, y, directionX, directionY, size, color) {
+                        this.x = x;
+                        this.y = y;
+                        this.directionX = directionX;
+                        this.directionY = directionY;
+                        this.size = size;
+                        this.color = color;
+                    }
+                    
+                    draw() {
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                        ctx.fillStyle = this.color;
+                        ctx.fill();
+                    }
+                    
+                    update() {
+                        if (this.x > canvas.width || this.x < 0) {
+                            this.directionX = -this.directionX;
+                        }
+                        if (this.y > canvas.height || this.y < 0) {
+                            this.directionY = -this.directionY;
+                        }
+                        
+                        this.x += this.directionX;
+                        this.y += this.directionY;
+                        this.draw();
+                    }
+                }
+                
+                function initParticles() {
+                    particlesArray = [];
+                    const numberOfParticles = Math.min(150, (canvas.height * canvas.width) / 9000);
+                    
+                    for (let i = 0; i < numberOfParticles; i++) {
+                        const size = (Math.random() * 2) + 1;
+                        const x = Math.random() * (canvas.width - size * 2) + size;
+                        const y = Math.random() * (canvas.height - size * 2) + size;
+                        const directionX = (Math.random() * 0.4) - 0.2;
+                        const directionY = (Math.random() * 0.4) - 0.2;
+                        const color = 'rgba(255,255,255,0.6)';
+                        
+                        particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+                    }
+                }
+                
+                function animateParticles() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    
+                    for (let i = 0; i < particlesArray.length; i++) {
+                        particlesArray[i].update();
+                    }
+                    
+                    animationId = requestAnimationFrame(animateParticles);
+                }
+                
+                initParticles();
+                animateParticles();
+                
+                // Throttled resize handler
+                let resizeTimeout;
+                window.addEventListener('resize', function() {
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(function() {
+                        resizeCanvas();
+                        initParticles();
+                    }, 250);
+                });
+                
+                // Pause animation when page is not visible (performance optimization)
+                document.addEventListener('visibilitychange', function() {
+                    if (document.hidden) {
+                        if (animationId) {
+                            cancelAnimationFrame(animationId);
+                        }
+                    } else {
+                        animateParticles();
+                    }
+                });
+                
+            } catch (error) {
+                console.warn('Particle animation error:', error);
+            }
+        });
+
+        // --- Smooth Scrolling for Navigation Links ---
+        domReady(function() {
+            document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        const offsetTop = targetElement.offsetTop - 80; // Account for header
+                        
+                        if ('scrollBehavior' in document.documentElement.style) {
+                            window.scrollTo({
+                                top: offsetTop,
+                                behavior: 'smooth'
+                            });
+                        } else {
+                            // Fallback for older browsers
+                            window.scrollTo(0, offsetTop);
+                        }
+                    }
+                });
+            });
+        });
+
+        // --- Performance optimizations ---
+        // Lazy load images that are not immediately visible
+        domReady(function() {
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            if (img.dataset.src) {
+                                img.src = img.dataset.src;
+                                img.removeAttribute('data-src');
+                            }
+                            observer.unobserve(img);
+                        }
+                    });
+                });
+                
+                document.querySelectorAll('img[data-src]').forEach(function(img) {
+                    imageObserver.observe(img);
+                });
+            }
+        });
+
+        // --- Service Worker Registration ---
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function(error) {
+                        console.log('ServiceWorker registration failed:', error);
+                    });
+            });
+        }
     </script>
 </body>
 </html>
