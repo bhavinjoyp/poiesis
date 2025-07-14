@@ -1,1 +1,1 @@
- cd "c:\Users\bhavi\OneDrive\Documents\bhavinjoyp\My Drive\Work\wix_mcp"; git add .; git commit -m "Deploy hero blend update"; git push origin main; git push origin main:gh-pages
+ cd "C:\Users\bhavi\OneDrive\Documents\bhavinjoyp\My Drive\Work\wix_mcp\Poiesis\poiesis"; git add .; git commit -m "Deploy hero blend update"; git push origin main; git push origin main:gh-pages
