@@ -1,4 +1,4 @@
-const CACHE_NAME = 'poiesis-2025-v1';
+const CACHE_NAME = 'poiesis-2025-v2';
 const urlsToCache = [
   '/',
   '/index.html',
