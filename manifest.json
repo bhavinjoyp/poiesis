@@ -1,0 +1,25 @@
+{
+  "name": "Poiesis 2025",
+  "short_name": "Poiesis",
+  "description": "An Inter-School/Collegiate Cultural Fest by Sacred Heart Girls' High School",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#8B5CF6",
+  "icons": [
+    {
+      "src": "Logo.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "Logo.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "orientation": "portrait-primary",
+  "categories": ["education", "events", "entertainment"]
+}
